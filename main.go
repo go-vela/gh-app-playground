@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 
 	"github.com/bradleyfalzon/ghinstallation/v2"
@@ -12,10 +13,13 @@ import (
 	"golang.org/x/oauth2"
 )
 
-const appID = 263
-
 func main() {
 	tr := http.DefaultTransport
+
+	appID, err := strconv.ParseInt(os.Getenv("APP_ID"), 10, 64)
+	if err != nil {
+		panic(err)
+	}
 
 	appPrivateKeyFile := os.Getenv("APP_PRIVATE_KEY_FILE")
 	gitApiURL := os.Getenv("APP_GIT_API_URL")
