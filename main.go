@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/bradleyfalzon/ghinstallation/v2"
-	"github.com/google/go-github/v59/github"
+	"github.com/google/go-github/v70/github"
 	"golang.org/x/oauth2"
 )
 
